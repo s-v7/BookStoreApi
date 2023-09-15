@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1 class="display-4">Ola, mundo!</h1>
+  <p class="lead">Este  um simples  service para fins  informa.</p>
+  <hr class="my-4">
+  <p>Ele usa classes utilit para tipografia e espacamento de conteudo, dentro do maior container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a>
+</div>
+
+
+<h2>My Books</h2>
+<ul class="books">
+  <li *ngFor="let _book of booksVector">
+    <button [class.selected]="_book === selectedBook" type="button" (click)="onSelect(_book)">
+      <span class="badge">{{_book.id}}</span>
+      <span class="book-name">{{_book.bookName}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedBook">
+  <h2>{{selectedBook.bookName}} Details</h2>
+  <div>id: {{selectedBook.id}}</div>
+  <div>
+    <label for="book-name">Book Name: </label>
+    <input id="book-name" [(ngModel)]="selectedBook.bookName" placeholder="book-name">
+  </div>
+</div>

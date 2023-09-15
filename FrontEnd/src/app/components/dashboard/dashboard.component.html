@@ -1,0 +1,127 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add New User
+</button>
+	<!-- <app-users-search></app-users-search> -->
+
+<div class="header">
+	<h2> Top Books DashBoard </h2>
+</div>
+
+<!-- Inicio Modal Add New Book -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>New Book</p>
+	<form action=".">
+	<div class="input-group">
+
+	<!-- params Input  <span class="input-group-text">E-mail and UserName</span> -->
+<form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
+
+	<div class="row">
+	<div class="col">
+		<input id="book-name" type="text" formControlName="bookName" placeholder="Book Name">	
+		<input id="price" type="number" formControlName="price" placeholder="Price">
+	</div>
+	</div>
+	<div class="row">
+	<div class="col">
+		<input id="category" type="text" formControlName="category" placeholder="Category">	
+		<input id="author" type="text" formControlName="author" placeholder="Author">
+		
+		<button class="button" type="submit">PurChase</button> 
+	</div>
+	</div>
+</form>
+	
+	</div>
+	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary" (click)="add(_email.value)">SaveEmail</button>  -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fim Modal New Book -->
+
+
+<div class="books-menu">                                    
+<div class="container-fluid">
+<div class="table">
+<table class="table table-bordered table-hover"  style="width: 100%">
+  <caption>List of Books</caption>
+	<thead class="thead-dark">
+	<tr>
+		<th scope="col">Id</th>
+		<th scope="col">BookName</th>
+		<th scope="col">Price</th>
+		<th scope="col">Category</th>
+		<th scope="col">Author</th>
+		
+	</tr>
+	</thead>
+	<tbody class="table-group-divider" *ngIf="books_get">
+	<tr  *ngFor="let books_t of books_get">
+		
+		 <td>{{books_t.id}}</td>
+		 <td>{{books_t.bookName}}</td>
+		 <td>{{books_t.price}}</td>
+		 <td>{{books_t.category}}</td>
+		 <td>{{books_t.author}}</td>
+		
+		<td>
+		    <button class="btn btn-info" 
+				data-bs-toggle="modal" 
+				data-bs-target="#visualizeModal"  
+				title="Visualize"><i class="bi-solid bi-eye"></i>
+		    </button>
+      		   
+		    <button class="btn btn-warning" 
+				data-bs-toggle="modal" 
+				data-bs-target="#updateModal"  
+				title="Update"><i class="bi-solid bi-pencil-square"></i>
+		    </button>
+		    
+		    <button class="btn btn-danger" 
+				data-bs-toggle="modal" 
+				data-bs-target="#deleteModal" 
+				title="Delete"><i class="bi-solid bi-trash"></i>
+		    </button>
+		</td>		
+	</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!--Test  -->
+
+<h2>Top Books</h2>
+<div class="books-menu">
+  <a *ngFor="let book of _books">
+    {{book.bookName}}
+  </a>
+</div>
+
+<div *ngIf="booksInput">
+
+  <h2>{{booksInput.bookName | uppercase}} Details</h2>
+  <div><span>id: </span>{{booksInput.id}}</div>
+  <div>
+    <label for="book-name">Book Name: </label>
+    <input id="book-name" [(ngModel)]="booksInput.bookName" placeholder="Book Name">
+  </div>
+
+</div>
