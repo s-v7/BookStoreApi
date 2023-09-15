@@ -1,6 +1,6 @@
 # BookStoreApi
 >
-### Sistema com objetivo de aprendizagem! 
+### System with a learning objective!! 
 >
 >> | Technologies Used | Description |
 >> | ----------- | ----------- |
@@ -9,7 +9,7 @@
 >> | ORM       | .... |  
 >> | SGBD(s)   | MongoDb | 
 >
-> Created with CodeSandbox
+> 
 
 
 
